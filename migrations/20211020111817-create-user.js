@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('graphic_design_users', {
+  up: async (queryInterface, DataTypes) => {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -20,19 +20,11 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
-      no_hp: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       jenis_kelamin: {
         type: DataTypes.STRING,
         allowNull: false
       },
       pekerjaan: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      tempat_kerja: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -44,15 +36,7 @@ module.exports = {
         type: DataTypes.DATEONLY,
         allowNull: false
       },
-      tahu_info: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      tujuan: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      harapan: {
+      tipe_kelas: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -66,7 +50,7 @@ module.exports = {
       }
     });
   },
-  down: (queryInterface, DataTypes) => {
-    return queryInterface.dropTable('graphic_design_users');
+  down: async (queryInterface, DataTypes) => {
+    await queryInterface.dropTable('users');
   }
 };

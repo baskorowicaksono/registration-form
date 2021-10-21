@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class graphic_design_user extends Model {
+  class user extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       return {...this.get(), id: undefined};
     }
   };
-  graphic_design_user.init({
+  user.init({
     uuid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4
@@ -30,19 +30,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    no_hp: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     jenis_kelamin: {
       type: DataTypes.STRING,
       allowNull: false
     },
     pekerjaan: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    tempat_kerja: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -54,21 +46,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
-    tahu_info: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    tujuan: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    harapan: {
+    tipe_kelas: {
       type: DataTypes.STRING,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'graphic_design_user',
+    modelName: 'user',
   });
-  return graphic_design_user;
+  return user;
 };

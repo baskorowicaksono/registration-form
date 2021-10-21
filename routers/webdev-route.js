@@ -1,15 +1,28 @@
 const router = require("express").Router();
-const { add_user } = require("../controllers/web_development/create_web_user");
 const { send_email } = require("../controllers/sendEmail");
-const getUser = require("../controllers/web_development/read_web_user");
+const controller = require("../controllers/web_development_controller");
 
 // route to POST API/ add new user who signs up on web development miniclass
-router.post("/web-development/add-user", add_user, send_email);
+router.post("/web-development/add-user", controller.add_web_development_user, send_email);
 
 // route to GET API/read user
-router.get("/web-development/read-users", getUser.read_all_users);
+router.get("/web-development/read-users", controller.read_all_users);
 
 // route to read specific user, based on uuid
-router.get("/web-development/read-user", getUser.read_a_user);
+router.get("/web-development/read-user-by-id", controller.read_a_user_by_uuid);
+
+// route to read specific user, based on the name
+router.get("/web-development/read-user-by-name", controller.read_a_user_by_name)
+
+// route to update user info
+router.put("/web-development/update-user", controller.update_user);
+
+// route to delete all web development registers
+router.delete("/web-development/delete-all-users", controller.delete_all_web_development_users)
+
+// route to delete web development user by their uuid
+router.delete("/web-development/delete-user", controller.delete_specific_web_development_user)
+
+
 
 module.exports = router;
