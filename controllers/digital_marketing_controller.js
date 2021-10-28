@@ -138,6 +138,46 @@ module.exports.update_user = async (req, res) => {
     }
 }
 
+module.exports.soft_delete_user_by_uuid = async (req, res) => {
+    try{
+        const userId = req.params.userId;
+        await user.update({is_deleted: 1}, {
+            where: {
+                uuid: userId,
+                tipe_kelas: "Digital Marketing"
+            }
+        }).then(() => {
+            res.sendStatus(200);
+        })
+    } catch(err){
+        if(err){
+            console.log(err);
+            return res.status(500)
+                      .json(err);
+        }
+    }
+}
+
+module.exports.soft_delete_user_by_name = async (req, res) => {
+    try{
+        const nama = req.params.nama;
+        await user.update({is_deleted: 1}, {
+            where: {
+                nama: nama,
+                tipe_kelas: "Digital Marketing"
+            }
+        }).then(() => {
+            res.sendStatus(200);
+        })
+    } catch(err){
+        if(err){
+            console.log(err);
+            return res.status(500)
+                      .json(err);
+        }
+    }
+}
+
 // Module DELETE
 module.exports.delete_all_digital_marketing_users = async (req, res) => {
     try{
