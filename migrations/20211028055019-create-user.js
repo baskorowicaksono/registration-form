@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false
       },
       jenis_kelamin: {
-        type: DataTypes.STRING,
+        type: DataTypes.BOOLEAN,    // nilai 0 laki-laki, nilai 1 perempuan
         allowNull: false
       },
       pekerjaan: {
@@ -40,17 +40,14 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
+      is_deleted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,         // 0 for not deleted, 1 for soft deleted data
+        defaultValue: 0
       }
     });
   },
-  down: async (queryInterface, DataTypes) => {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('users');
   }
 };

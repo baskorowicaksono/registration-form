@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     jenis_kelamin: {
-      type: DataTypes.STRING,
+      type: DataTypes.BOOLEAN,    // nilai 0 laki-laki, nilai 1 perempuan
       allowNull: false
     },
     pekerjaan: {
@@ -49,6 +49,11 @@ module.exports = (sequelize, DataTypes) => {
     tipe_kelas: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,          // 0 for not deleted, 1 for soft deleted data
+      allowNull: false,
+      defaultValue: 0
     }
   }, {
     sequelize,
