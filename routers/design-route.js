@@ -17,6 +17,15 @@ router.get("/graphic-design/read-user-by-name", controller.read_a_user_by_name)
 // route to update user info
 router.put("/graphic-design/update-user", controller.update_user);
 
+// route to soft delete user record
+
+// by uuid
+router.patch("/graphic-design/soft-delete-user-by-id", controller.soft_delete_user_by_uuid)
+
+// by name
+router.patch("/graphic-design/soft-delete-user-by-name", controller.soft_delete_user_by_name)
+
+
 // route to delete all web development registers
 router.delete("/graphic-design/delete-all-users", controller.delete_all_graphic_design_users)
 

@@ -17,6 +17,14 @@ router.get("/web-development/read-user-by-name", controller.read_a_user_by_name)
 // route to update user info
 router.put("/web-development/update-user", controller.update_user);
 
+// route to soft delete user record
+
+// by uuid
+router.patch("/web-development/soft-delete-user-by-id", controller.soft_delete_user_by_uuid)
+
+// by name
+router.patch("/web-development/soft-delete-user-by-name", controller.soft_delete_user_by_name)
+
 // route to delete all web development registers
 router.delete("/web-development/delete-all-users", controller.delete_all_web_development_users)
 
