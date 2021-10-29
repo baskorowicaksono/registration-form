@@ -1,12 +1,15 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, DataTypes) => {
-    await queryInterface.createTable('users', {
+  up: (queryInterface, DataTypes) => {
+    return queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
+      },
+      nama: {
+        type: DataTypes.STRING
       },
       uuid: {
         type: DataTypes.UUID,
@@ -41,8 +44,8 @@ module.exports = {
         allowNull: false
       },
       is_deleted: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,         // 0 for not deleted, 1 for soft deleted data
+        type: DataTypes.BOOLEAN,          // 0 for not deleted, 1 for soft deleted data
+        allowNull: false,
         defaultValue: 0
       },
       createdAt: {
@@ -55,7 +58,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users');
+  down: (queryInterface, DataTypes) => {
+    return queryInterface.dropTable('users');
   }
 };
