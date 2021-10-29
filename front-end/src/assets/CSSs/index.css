@@ -1,0 +1,84 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+h5{
+  margin-bottom: 0 !important;
+  font-weight: 600 !important;
+}
+p{
+  margin-bottom: 0 !important;
+}
+@font-face {
+  font-family: normRegular;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Regular.otf');
+}
+@font-face {
+  font-family: normBlack;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Black.otf');
+}
+@font-face {
+  font-family: normBold;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Bold.otf');
+}
+@font-face {
+  font-family: normMedium;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Medium.otf');
+}
+@font-face {
+  font-family: normLight;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Light.otf');
+}
+@font-face {
+  font-family: normThin;
+  src: url('../Fonts/tt-norms-pro-cufonfonts/TT Norms Pro Thin.otf');
+}
+@font-face {
+  font-family: nuromBold;
+  src: url('../Fonts/Nurom/Nurom-Bold.ttf');
+}
+@font-face {
+  font-family: nuromMedium;
+  src: url('../Fonts/Nurom/Nurom-Medium.ttf');
+}
+.normBlack{
+  font-family: normBlack;
+}
+.normBold{
+  font-family: normBold;
+}
+.normMedium{
+  font-family: normMedium;
+}
+.normRegular{
+  font-family: normRegular;
+}
+.normLight{
+  font-family: normLight;
+}
+.normThin{
+  font-family: normThin;
+}
+.nuromBold{
+  font-family: nuromBold;
+}
+.nuromMedium{
+  font-family: nuromMedium;
+}
+.text-zeal{
+  color: #1F2B52;
+}
+.bg-zeal{
+  background-color: #1F2B52;
+}
+.modalmodal {
+  width: 450px !important;
+  max-width: 450px;
+  height: 605px;
+} 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}

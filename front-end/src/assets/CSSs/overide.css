@@ -1,0 +1,6 @@
+ul.p-tabview-nav{
+    display: none !important;
+}
+.p-tabview-panels{
+    padding: 0!important;
+}
