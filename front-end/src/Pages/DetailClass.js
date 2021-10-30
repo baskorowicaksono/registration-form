@@ -198,7 +198,7 @@ export default function DetailClass(props) {
                     <Grid xl={12} lg={12} md={12} sm={12} xs={12} className={classes.downloadWrap}>
                         <div className="d-flex justify-content-center w-100 px-5" style={{ paddingTop: 100 }}>
                             <div className="text-center" style={{ width: 470 }}>
-                                <Heading2 class="text-zeal mb-5" text="Yuk Download Free Ebook Graphic Design Sekarang!" />
+                                <Heading2 class="text-zeal mb-5" text={`Yuk Download Free Ebook ${props.classTitle} Sekarang!`} />
                                 <Hidden smDown>
                                     <ZealButtonPrimary handleClick={handleOpenModal} class="nuromBold px-4" title="Download Free Ebook" />
                                 </Hidden>
