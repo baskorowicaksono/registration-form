@@ -1,20 +1,25 @@
 // Importing required Modules
 require("dotenv").config();
-const { user } = require("../models")
+const { user } = require("../models");
+const _ = require("lodash");
+const moment = require("moment");
 
 // Module CREATE
-module.exports.add_web_development_user = async (req, res, next) => {
+module.exports.add_digital_marketing_user = async (req, res, next) => {
     try{
         const {
             nama,
             email,
             jenis_kelamin,
             pekerjaan,
-            kota,
-            tanggal_lahir,
+            media_info,
+            tujuan,
+            minat
         } = req.body;
-
-        const tipeKelas = "Web Development";
+        const kota = _.capitalize(req.body.kota);
+        const date = req.body.tanggal_lahir;
+        const dateSplitted = date.split("/");
+        const tanggal_lahir = moment(`${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]}`).format("YYYY-MM-DD");
 
         const createdUser = await user.create({
             nama,
@@ -23,7 +28,10 @@ module.exports.add_web_development_user = async (req, res, next) => {
             pekerjaan,
             kota,
             tanggal_lahir,
-            tipe_kelas : tipeKelas
+            tipe_kelas : "Digital Marketing",
+            media_info,
+            tujuan,
+            minat
         });
         res.json({
             status: "OK",
@@ -43,7 +51,7 @@ module.exports.read_all_users = async (req, res) => {
     try{
         const users = await user.findAll({
             where: {
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         });
         return res.json(users);
@@ -61,7 +69,7 @@ module.exports.read_a_user_by_uuid = async (req, res) => {
         const user = await user.findAll({
             where: {
                 uuid: userId,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         });
         return res.json(user);
@@ -79,7 +87,7 @@ module.exports.read_a_user_by_name = async (req, res) => {
         const user = await user.findAll({
             where: {
                 nama: nama,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         });
         return res.json(user);
@@ -100,14 +108,19 @@ module.exports.update_user = async (req, res) => {
             email,
             jenis_kelamin,
             pekerjaan,
-            kota,
-            tanggal_lahir,
+            media_info,
+            tujuan,
+            minat
         } = req.body;
+        const kota = _.capitalize(req.body.kota);
+        const date = req.body.tanggal_lahir;
+        const dateSplitted = date.split("/");
+        const tanggal_lahir = moment(`${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]}`).format("YYYY-MM-DD");
 
         const savedUser = await user.findOne({
             where: {
                 uuid: userId,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         })
         .then(record => {
@@ -118,7 +131,10 @@ module.exports.update_user = async (req, res) => {
                 pekerjaan,
                 kota,
                 tanggal_lahir,
-                tipe_kelas: "Web Development"
+                tipe_kelas : "Digital Marketing",
+                media_info,
+                tujuan,
+                minat
             })
         })
         .then(() => {
@@ -140,7 +156,7 @@ module.exports.soft_delete_user_by_uuid = async (req, res) => {
         await user.update({is_deleted: 1}, {
             where: {
                 uuid: userId,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         }).then(() => {
             res.sendStatus(200);
@@ -160,7 +176,7 @@ module.exports.soft_delete_user_by_name = async (req, res) => {
         await user.update({is_deleted: 1}, {
             where: {
                 nama: nama,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         }).then(() => {
             res.sendStatus(200);
@@ -175,15 +191,15 @@ module.exports.soft_delete_user_by_name = async (req, res) => {
 }
 
 // Module DELETE
-module.exports.delete_all_web_development_users = async (req, res) => {
+module.exports.delete_all_digital_marketing_users = async (req, res) => {
     try{
         await user.destroy({
-            where: {tipe_kelas: "Web Development"},
+            where: {tipe_kelas: "Digital Marketing"},
             force: true
         })
         res.send({
             success: true,
-            message: "All Web Development registers successfully deleted"
+            message: "All digital marketing registers successfully deleted"
         })
     } catch(err){
         if(err){
@@ -194,13 +210,13 @@ module.exports.delete_all_web_development_users = async (req, res) => {
     }
 }
 
-module.exports.delete_specific_web_development_user = async (req, res) => {
+module.exports.delete_specific_digital_marketing_user = async (req, res) => {
     try{
         const userId = req.query.userId;
         const specifiedUser = await user.findOne({
             where: {
                 uuid: userId,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Digital Marketing"
             }
         });
         await specifiedUser.destroy();

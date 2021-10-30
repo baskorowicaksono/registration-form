@@ -14,7 +14,6 @@ import {
 import { useForm, Controller } from 'react-hook-form';
 import ZealForm from "./ZealForm"
 import Axios from "axios";
-import moment from "moment";
 export default function Step(props) {
     const radios = [
         { name: 'P', value: 'perempuan' },
@@ -49,7 +48,10 @@ export default function Step(props) {
             jenis_kelamin: data.jenisKelamin,
             pekerjaan: data.pekerjaan,
             kota: data.kota,
-            tanggal_lahir: moment(data.tanggalLahir).format("YYYY-MM-DD"),
+            tanggal_lahir: data.tanggalLahir,
+            media_info: data.media,
+            tujuan: data.tujuan,
+            minat: data.minat
         }).then(res => {
             console.log(res.data);
         })
@@ -96,7 +98,7 @@ export default function Step(props) {
                     <Form.Group className="mb-4" controlId="tanggalLahir">
                         <Form.Label style={{ fontSize: 18 }} className="normMedium">Tanggal Lahir</Form.Label>
                         <Controller name="tanggalLahir" control={control} rules={{ required: true }} render={({ field, fieldState }) =>
-                            <Form.Control className={fieldState.invalid ? "is-invalid" : ""} type="text" placeholder="yyyy-mm-dd"  {...field} onChange={(e) => field.onChange(e.target.value)} />
+                            <Form.Control className={fieldState.invalid ? "is-invalid" : ""} type="text" placeholder="dd/mm/yyyy"  {...field} onChange={(e) => field.onChange(e.target.value)} />
                         } />
                     </Form.Group>
                 </Fragment>

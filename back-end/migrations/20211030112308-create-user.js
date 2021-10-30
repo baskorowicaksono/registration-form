@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      nama: {
-        type: DataTypes.STRING
-      },
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4
@@ -41,6 +38,18 @@ module.exports = {
       },
       tipe_kelas: {
         type: DataTypes.STRING,
+        allowNull: false
+      },
+      media_info: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      tujuan: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      minat: {
+        type:DataTypes.STRING,
         allowNull: false
       },
       is_deleted: {
