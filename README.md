@@ -5,7 +5,7 @@
 </h1>
 
 ### Menjalankan File
-Sebelum menjalankan file, pastikan bahwa pada device yang digunakan telah mendukung penggunaan database MySQL. Jika belum, maka Anda perlu untuk navigasi pada laman [DownloadMySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html) yang sesuai dengan arsitektur yang Anda gunakan. Kemudian, lanjutkan dengan melakukan instalasi terhadap tools-tools yang disarankan, seperti MySQL Command-Line Client, MySQL Workbench, dll.
+Sebelum menjalankan file, pastikan bahwa pada device yang digunakan telah mendukung penggunaan database MySQL. Jika belum, maka Anda perlu untuk navigasi pada laman [DownloadMySQL](https://dev.mysql.com/downloads/windows/installer/8.0.html) dan mengunduh MySQL Installer yang sesuai dengan arsitektur yang Anda gunakan. Kemudian, lanjutkan dengan melakukan instalasi terhadap tools-tools yang disarankan, seperti MySQL Command-Line Client, MySQL Workbench, dll.
 
 Setelah hal di atas selesai disiapkan, lakukan langkah-langkah berikut ini untuk menjalankan layanan.
 - Navigasi pada folder __*back-end*__
