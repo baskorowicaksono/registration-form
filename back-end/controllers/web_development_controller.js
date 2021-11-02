@@ -2,7 +2,6 @@
 require("dotenv").config();
 const { user } = require("../models")
 const _ = require("lodash");
-const moment = require("moment");
 
 // Module CREATE
 module.exports.add_web_development_user = async (req, res, next) => {
@@ -14,13 +13,10 @@ module.exports.add_web_development_user = async (req, res, next) => {
             pekerjaan,
             media_info,
             tujuan,
-            minat
+            minat,
+            tanggal_lahir
         } = req.body;
         const kota = _.capitalize(req.body.kota);
-        const date = req.body.tanggal_lahir;
-        const dateSplitted = date.split("/");
-        const tanggal_lahir = moment(`${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]}`).format("YYYY-MM-DD");
-        const tipeKelas = "Web Development";
 
         const createdUser = await user.create({
             nama,
@@ -29,7 +25,7 @@ module.exports.add_web_development_user = async (req, res, next) => {
             pekerjaan,
             kota,
             tanggal_lahir,
-            tipe_kelas : tipeKelas,
+            tipe_kelas : "Web Development",
             media_info,
             tujuan,
             minat
@@ -111,13 +107,11 @@ module.exports.update_user = async (req, res) => {
             pekerjaan,
             media_info,
             tujuan,
-            minat
+            minat,
+            tanggal_lahir
         } = req.body;
         const kota = _.capitalize(req.body.kota);
-        const date = req.body.tanggal_lahir;
-        const dateSplitted = date.split("/");
-        const tanggal_lahir = moment(`${dateSplitted[2]}-${dateSplitted[1]}-${dateSplitted[0]}`).format("YYYY-MM-DD");
-        
+
         const savedUser = await user.findOne({
             where: {
                 uuid: userId,

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon server.js",
     "client": "cd ../front-end && npm start",
-    "start": "concurrently \"npm run dev\" \"npm run client\" "
+    "start": "concurrently \"npm run dev\" \"npm run client\" ",
+    "develop" : "npm install && cd ../front-end && npm install"
   },
   "engines": {
     "node": "16.6.1"
@@ -20,7 +21,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1",
     "mysql2": "^2.3.2",
     "nodemailer": "^6.7.0",
     "nodemailer-express-handlebars": "^4.0.0",

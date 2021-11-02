@@ -9,8 +9,6 @@ import {
 } from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import { Heading1, Heading2, Paragraf } from '../Component/Text'
-import ZealHeader from "../Component/Header"
-import ZealFooter from "../Component/Footer"
 import ClassCard from "../Component/ClassCard"
 import ZealBanner from '../assets/Images/Zeal-Banner.png'
 
@@ -96,14 +94,13 @@ const homeStyles = makeStyles(() => ({
 
 export default function Home() {
   const classes = homeStyles();
-  const cardContent = [
-    { cardImg: "digitalmarketing", cardTitle: "Digital Marketing", cardDesc: "Belajar digital marketing akan meningkatkan penjualan  produkmu" },
-    { cardImg: "graphicdesign", cardTitle: "Graphic Design", cardDesc: "Tingkatkan skill desainmu dan pelajari berbagai tools desain" },
-    { cardImg: "webdevelop", cardTitle: "Web Development", cardDesc: "Kupas tuntas berbagai basic programming agar jadi web developer andal" }
-  ]
+  // const cardContent = [
+  //   { cardImg: "digitalmarketing", cardTitle: "Digital Marketing", cardDesc: "Belajar digital marketing akan meningkatkan penjualan  produkmu" },
+  //   { cardImg: "graphicdesign", cardTitle: "Graphic Design", cardDesc: "Tingkatkan skill desainmu dan pelajari berbagai tools desain" },
+  //   { cardImg: "webdevelop", cardTitle: "Web Development", cardDesc: "Kupas tuntas berbagai basic programming agar jadi web developer andal" }
+  // ]
   return (
     <Fragment>
-      <ZealHeader />
       <div style={{ paddingTop: 55, position: 'relative' }}>
         <img src={ZealBanner} alt="ZealBanner" style={{ width: '100%' }} />
         <div className="top-0 start-0 position-absolute h-100 w-100 bg-zeal" style={{ paddingTop: 50, opacity: 0.5, zIndex: 1 }}></div>
@@ -144,7 +141,6 @@ export default function Home() {
           </Row>
         </Container>
       </div>
-      <ZealFooter />
     </Fragment >
   );
 }

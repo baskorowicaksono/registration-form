@@ -2,7 +2,6 @@ import React, { Fragment, useRef } from 'react';
 import {
     Row,
     Col,
-    Button,
     Container,
 } from 'react-bootstrap';
 import {
@@ -14,8 +13,6 @@ import {
     makeStyles,
 } from '@mui/styles';
 import ModalForm from '../Component/ModalForm'
-import ZealHeader from "../Component/Header"
-import ZealFooter from "../Component/Footer"
 import { ZealButtonPrimary, ZealButtonSecondary } from "../Component/ZealButton"
 import { Heading1, Heading2, Paragraf } from '../Component/Text'
 import MaterialClass from "../Component/MaterialClass"
@@ -134,7 +131,6 @@ export default function DetailClass(props) {
     }
     return (
         <Fragment>
-            <ZealHeader />
             <div style={{ paddingTop: 55, width: "100%", overflow: 'hidden' }} className="bg-zeal">
                 <Row className={classes.bannerWrap}>
                     <Col className={`d-flex justify-content-end align-items-center ${classes.imgWrap}`} xs={4} sm={4} md={4} lg={6} xl={6}>
@@ -142,7 +138,7 @@ export default function DetailClass(props) {
                             <img alt="bannerImg" src={require(`../assets/Images/${props.classImg}-mobile.png`).default} className={classes.bannerImg} />
                         </Hidden>
                         <Hidden mdDown>
-                            <img src={require(`../assets/Images/${props.classImg}.png`).default} style={{ width: 280, height: 280 }} />
+                            <img alt="bannerImg" src={require(`../assets/Images/${props.classImg}.png`).default} style={{ width: 280, height: 280 }} />
                         </Hidden>
                     </Col>
                     <Col xs={8} sm={8} md={8} lg={6} xl={6}>
@@ -167,9 +163,9 @@ export default function DetailClass(props) {
             <Container fluid style={{ marginTop: 70 }}>
                 <Row>
                     {benefits.map((item, index) =>
-                        <Col xs={6} sm={6} md={6} lg={3} xl={3} className="d-flex justify-content-center text-center mb-lg-0 mb-md-4 mb-sm-4 mb-4">
+                        <Col key={index} xs={6} sm={6} md={6} lg={3} xl={3} className="d-flex justify-content-center text-center mb-lg-0 mb-md-4 mb-sm-4 mb-4">
                             <div style={{ width: 220 }}>
-                                <img src={require(`../assets/Images/${item.benefitImg}.png`).default} className={`rounded-circle ${classes.benefitImg}`} />
+                                <img alt="benefitImg" src={require(`../assets/Images/${item.benefitImg}.png`).default} className={`rounded-circle ${classes.benefitImg}`} />
                                 <Paragraf class="normRegular text-zeal mt-3" text={item.benefit} />
                             </div>
                         </Col>
@@ -179,7 +175,7 @@ export default function DetailClass(props) {
             <div style={{ width: '100%', overflow: 'hidden', backgroundColor: "#E4E7EF", marginTop: 150, position: 'relative' }}>
                 <img src={CircleLeft} alt="CircleLeft" className={classes.circleLeft} style={{ position: 'absolute', left: 0, top: 0, zIndex: 1 }} />
                 <Grid container className="position-relative" style={{ zIndex: 1000 }}>
-                    <Grid xl={12} lg={12} md={12} sm={12} xs={12} className="px-3">
+                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12} className="px-3">
                         <div className="d-flex justify-content-center w-100 pt-5">
                             <div className="text-center" style={{ width: 470 }}>
                                 <Heading2 class="text-zeal" text="Apa yang Akan Kamu Pelajari?" />
@@ -189,13 +185,13 @@ export default function DetailClass(props) {
                     </Grid>
                     <Grid container justifyContent="center" columnSpacing={{ xs: 1, sm: 3, md: 3, lg: 3, xl: 3 }}>
                         {props.material.map((item, index) =>
-                            <Grid item className="d-inline-block pt-5">
+                            <Grid item key={index} className="d-inline-block pt-5">
                                 <MaterialClass material={item.material1} />
                                 <MaterialClass material={item.material2} />
                             </Grid>
                         )}
                     </Grid>
-                    <Grid xl={12} lg={12} md={12} sm={12} xs={12} className={classes.downloadWrap}>
+                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12} className={classes.downloadWrap}>
                         <div className="d-flex justify-content-center w-100 px-5" style={{ paddingTop: 100 }}>
                             <div className="text-center" style={{ width: 470 }}>
                                 <Heading2 class="text-zeal mb-5" text={`Yuk Download Free Ebook ${props.classTitle} Sekarang!`} />
@@ -213,7 +209,6 @@ export default function DetailClass(props) {
             </div>
             <ModalForm ref={modalRef} />
             <DrawerForm ref={drawerRef} />
-            <ZealFooter />
         </Fragment>
     )
 }

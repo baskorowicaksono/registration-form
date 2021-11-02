@@ -19,7 +19,7 @@ export default function Header() {
                             <Nav.Item as="li"><Nav.Link href="#layanan">Layanan</Nav.Link></Nav.Item>
                             <Nav.Item as="li"><Nav.Link href="#sapa-kami">Sapa Kami</Nav.Link></Nav.Item>
                             <Nav.Item as="li"><Nav.Link href="#join-us">Join Us</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Button className="btn btn-primary">Login</Button></Nav.Item>
+                            <Nav.Item as="li"><Button style={{backgroundColor: '#3935EB', borderColor: '#3935EB'}}>Login</Button></Nav.Item>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
