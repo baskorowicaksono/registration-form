@@ -1,6 +1,7 @@
 // Importing required Modules
 require("dotenv").config();
 const { user } = require("../models")
+const _ = require("lodash");
 
 // Module CREATE
 module.exports.add_web_development_user = async (req, res, next) => {
@@ -10,11 +11,12 @@ module.exports.add_web_development_user = async (req, res, next) => {
             email,
             jenis_kelamin,
             pekerjaan,
-            kota,
-            tanggal_lahir,
+            media_info,
+            tujuan,
+            minat,
+            tanggal_lahir
         } = req.body;
-
-        const tipeKelas = "Web Development";
+        const kota = _.capitalize(req.body.kota);
 
         const createdUser = await user.create({
             nama,
@@ -23,7 +25,10 @@ module.exports.add_web_development_user = async (req, res, next) => {
             pekerjaan,
             kota,
             tanggal_lahir,
-            tipe_kelas : tipeKelas
+            tipe_kelas : "Web Development",
+            media_info,
+            tujuan,
+            minat
         });
         res.json({
             status: "OK",
@@ -100,9 +105,12 @@ module.exports.update_user = async (req, res) => {
             email,
             jenis_kelamin,
             pekerjaan,
-            kota,
-            tanggal_lahir,
+            media_info,
+            tujuan,
+            minat,
+            tanggal_lahir
         } = req.body;
+        const kota = _.capitalize(req.body.kota);
 
         const savedUser = await user.findOne({
             where: {
@@ -118,7 +126,10 @@ module.exports.update_user = async (req, res) => {
                 pekerjaan,
                 kota,
                 tanggal_lahir,
-                tipe_kelas: "Web Development"
+                tipe_kelas: "Web Development",
+                media_info,
+                tujuan,
+                minat
             })
         })
         .then(() => {

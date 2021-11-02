@@ -29,8 +29,8 @@ app.use("/miniclass", marketingRoute);
 app.use("/miniclass", webRoute);
 
 // DB Connection
-app.listen({ port: 3001 }, async () => {
-    console.log("Server up on http://localhost:3001\n");
+app.listen({ port: 8080 }, async () => {
+    console.log("Server up on http://localhost:8080\n");
     await sequelize.authenticate();
     console.log("\nDatabase Connected!");
 });

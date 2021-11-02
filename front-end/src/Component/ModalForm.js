@@ -1,25 +1,29 @@
-import React, { Fragment, useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import {
-    Row,
-    Col,
     Modal,
 } from 'react-bootstrap';
 import {
     IconButton,
+    Grid
 } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Step from './Step'
 
 const ModalForm = (props, ref) => {
     const [show, setShow] = useState(false);
+    const [callActive, setCallActive] = useState(0)
     const handleClose = () => {
         setShow(false);
+        setCallActive(0)
     }
     useImperativeHandle(ref, () => ({
         handleShow() {
             setShow(true)
         }
     }));
+    const handleCallActive = () => {
+        setCallActive((prevCallActive) => prevCallActive + 1)
+    }
     return (
         <Modal
             show={show}
@@ -29,22 +33,22 @@ const ModalForm = (props, ref) => {
             centered
             contentClassName="modalmodal"
         >
-            <Modal.Header style={{ padding: "0 0 25px 35px", borderBottom: 0 }}>
-                <Row>
-                    <Col className="pe-0" style={{ paddingTop: 35 }} xs={10} sm={10} md={10} lg={10} xl={10}>
-                        <Modal.Title style={{ margin: 0, fontSize: 20, letterSpacing: 1 }} className="nuromBold">Yuk, isi form dibawah ini untuk menerima link download Ebook!</Modal.Title>
-                    </Col>
-                    <Col className="ps-0 d-flex justify-content-end" xs={2} sm={2} md={2} lg={2} xl={2}>
+            <Modal.Header style={{ padding: "0 0 25px 35px", borderBottom: 0, height: 120 }}>
+                <Grid container style={{height: '100%'}}>
+                    <Grid item className="pe-0" style={{ paddingTop: 35 }} xs={10} sm={10} md={10} lg={10} xl={10}>
+                        {callActive === 3 ? "" : <Modal.Title style={{ margin: 0, fontSize: 20 }} className="nuromBold text-zeal">Yuk, isi form dibawah ini untuk menerima link download Ebook!</Modal.Title>}
+                    </Grid>
+                    <Grid item className="ps-0 d-flex justify-content-end" xs={2} sm={2} md={2} lg={2} xl={2}>
                         <div>
                             <IconButton onClick={handleClose}>
-                                <HighlightOffIcon />
+                                <HighlightOffIcon style={{color: '#1F2B52'}} />
                             </IconButton>
                         </div>
-                    </Col>
-                </Row>
+                    </Grid>
+                </Grid>
             </Modal.Header>
             <Modal.Body style={{ padding: "0 35px" }}>
-                <Step handleClose={handleClose} />
+                <Step handleClose={handleClose} handleCallActive={handleCallActive} />
             </Modal.Body>
         </Modal>
     )

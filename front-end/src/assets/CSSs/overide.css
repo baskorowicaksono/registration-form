@@ -1,6 +1,5 @@
-ul.p-tabview-nav{
-    display: none !important;
-}
-.p-tabview-panels{
-    padding: 0!important;
+.btn-check:active+.custom-btn, .btn-check:checked+.custom-btn, .custom-btn.active, .custom-btn.dropdown-toggle.show, .custom-btn:active {
+    background-color: #1F2B52 !important;
+    color: #fff;
+    box-shadow: none !important;
 }
