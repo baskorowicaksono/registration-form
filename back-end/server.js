@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 const { sequelize } = require("./models");
+const cors = require("cors");
 
 app.use(express.static(path.resolve(__dirname, '../front-end/build')));
 
