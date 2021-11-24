@@ -16,11 +16,11 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
+    "username": "master",
     "password": "root",
     "database": "registrationDB",
     "host": "localhost",
     "dialect": "mysql",
-    "port"  : "3308"
+    "port"  : "3306"
   }
 }

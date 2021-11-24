@@ -5,14 +5,6 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 const { sequelize } = require("./models");
-const cors = require("cors");
-
-app.use(express.static(path.resolve(__dirname, '../front-end/build')));
-
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../front-end/build', 'index.html'));
-});
-
 
 // Import Route
 const designRoute = require("./routers/design-route");
@@ -25,9 +17,9 @@ app.use(express.json());
 app.use(cors());
 
 // Route Middleware
-app.use("/miniclass", designRoute);
-app.use("/miniclass", marketingRoute);
-app.use("/miniclass", webRoute);
+app.use("/api/miniclass", designRoute);
+app.use("/api/miniclass", marketingRoute);
+app.use("/api/miniclass", webRoute);
 
 // DB Connection
 app.listen({ port: 8080 }, async () => {

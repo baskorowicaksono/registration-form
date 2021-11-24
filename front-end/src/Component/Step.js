@@ -42,7 +42,7 @@ export default function Step(props) {
     //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
     // };
     const onSubmit = (data) => {
-        axiosInstance.post((window.location.pathname === "/detail/digital-marketing" ? "/miniclass/digital-marketing/add-user" : (window.location.pathname === "/detail/graphic-design" ? "/miniclass/graphic-design/add-user" : "/miniclass/web-development/add-user")), {
+        axiosInstance.post((window.location.pathname === "/detail/digital-marketing" ? "/api/miniclass/digital-marketing/add-user" : (window.location.pathname === "/detail/graphic-design" ? "/api/miniclass/graphic-design/add-user" : "/api/miniclass/web-development/add-user")), {
             nama: data.namaLengkap,
             email: data.email,
             jenis_kelamin: data.jenisKelamin,
