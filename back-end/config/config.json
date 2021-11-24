@@ -5,7 +5,7 @@
     "database": "registrationDB",
     "host": "localhost",
     "dialect": "mysql",
-    "port"  : "3308"
+    "port"  : "3310"
   },
   "test": {
     "username": "root",
@@ -17,10 +17,10 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "password": "root",
+    "database": "registrationDB",
+    "host": "localhost",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "port"  : "3308"
   }
 }

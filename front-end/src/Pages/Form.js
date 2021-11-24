@@ -2,12 +2,11 @@ import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import { InputSwitch } from 'primereact/inputswitch';
 import { Editor } from 'primereact/editor';
 import { FileUpload } from 'primereact/fileupload';
 import { InputNumber } from 'primereact/inputnumber';
@@ -21,8 +20,6 @@ import {
     Col
 } from 'react-bootstrap';
 export default function Form() {
-    const [showMessage, setShowMessage] = useState(false);
-    const [formData, setFormData] = useState({});
     const defaultValues = {
         namaMiniclass: '',
         deskripsiMiniclass: '',
@@ -45,9 +42,6 @@ export default function Form() {
         console.log(data);
         reset();
     };
-    const myUploader = (e) => {
-        console.log(e.files)
-    }
     function editorHeader() {
         return (
             <span className="ql-formats">
@@ -155,7 +149,7 @@ export default function Form() {
                         </Row>
                         <div className="my-3 d-flex align-items-center">
                             <Controller name="displayEvent" control={control} rules={{ required: true }} render={({ field, fieldState }) => (
-                                <Checkbox inputId={field.name} className={classNames({ 'p-invalid': fieldState.invalid })} onChange={(e) => field.onChange(e.checked)} checked={field.value} className={classNames({ 'p-invalid': fieldState.invalid })} />
+                                <Checkbox inputId={field.name} onChange={(e) => field.onChange(e.checked)} checked={field.value} className={classNames({ 'p-invalid': fieldState.invalid })} />
                             )} />
                             <label htmlFor="displayEvent" className={classNames({ 'p-error': errors.displayEvent })}>Display Event</label>
                         </div>

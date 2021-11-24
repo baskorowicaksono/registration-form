@@ -36,4 +36,8 @@ npx sequelize db:migrate --env production
 npm start
 ```
 - Layanan telah dijalankan pada localhost
+<<<<<<< HEAD
 - Setiap record data yang merupakan input dari form akan disimpan ke dalam database dan saat ini dapat diakses menggunakan __*MySQL Workbench ataupun MySQL Command-Line Client*__ untuk database dan tabel terkait.
+=======
+- Setiap record data yang merupakan input dari form akan disimpan ke dalam database dan saat ini dapat diakses menggunakan __*MySQL Workbench ataupun MySQL Command-Line Client*__ untuk database dan tabel terkait.
+>>>>>>> b82f303bc37342ab9e9992a1344f536ff4ae21fa
