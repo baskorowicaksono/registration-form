@@ -31,6 +31,7 @@ export default function Step(props) {
         tujuan: '',
         minat: ''
     }
+    const axiosInstance = Axios.create({baseURL: process.env.REACT_APP_API_URL})
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues: defaultValues, mode: "onBlur" });
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -41,7 +42,7 @@ export default function Step(props) {
     //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
     // };
     const onSubmit = (data) => {
-        Axios.post((window.location.pathname === "/detail/digital-marketing" ? "/miniclass/digital-marketing/add-user" : (window.location.pathname === "/detail/graphic-design" ? "/miniclass/graphic-design/add-user" : "/miniclass/web-development/add-user")), {
+        axiosInstance.post((window.location.pathname === "/detail/digital-marketing" ? "/miniclass/digital-marketing/add-user" : (window.location.pathname === "/detail/graphic-design" ? "/miniclass/graphic-design/add-user" : "/miniclass/web-development/add-user")), {
             nama: data.namaLengkap,
             email: data.email,
             jenis_kelamin: data.jenisKelamin,
